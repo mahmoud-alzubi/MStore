@@ -1,4 +1,4 @@
-package com.mtech.microserviceinventorydata.dto;
+package com.mtech.commons.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
