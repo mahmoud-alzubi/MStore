@@ -1,14 +1,12 @@
 package com.mtech.microserviceinventorydata.controller;
 
+import com.mtech.commons.dto.InventoryResponse;
 import com.mtech.microserviceinventorydata.dto.InventoryRequest;
-import com.mtech.microserviceinventorydata.dto.InventoryResponse;
-import com.mtech.microserviceinventorydata.entity.Inventory;
 import com.mtech.microserviceinventorydata.service.InventoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 

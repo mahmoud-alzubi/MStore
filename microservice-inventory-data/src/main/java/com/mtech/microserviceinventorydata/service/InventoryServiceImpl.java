@@ -1,7 +1,7 @@
 package com.mtech.microserviceinventorydata.service;
 
+import com.mtech.commons.dto.InventoryResponse;
 import com.mtech.microserviceinventorydata.dto.InventoryRequest;
-import com.mtech.microserviceinventorydata.dto.InventoryResponse;
 import com.mtech.microserviceinventorydata.entity.Inventory;
 import com.mtech.microserviceinventorydata.repository.InventoryRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Slf4j
