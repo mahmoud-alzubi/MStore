@@ -54,10 +54,6 @@ public class OrderServiceImpl implements OrderService {
                     .bodyToMono(InventoryResponse[].class)
                     .block();
 
-            if (inventoryResponseArray.length == 0) {
-                throw new ProductNotFoundException("Product is not in stock currently, please try another time.");
-            }
-
             for (InventoryResponse invItemResponse : inventoryResponseArray) {
                 if (!invItemResponse.isInStock()) {
                     throw new ProductNotFoundException("Product is not in stock currently, please try another time.");
