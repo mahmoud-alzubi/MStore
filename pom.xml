@@ -19,6 +19,8 @@
 
     <modules>
         <module>microservice-products-data</module>
+        <module>microservice-orders-data</module>
+        <module>microservice-inventory-data</module>
     </modules>
 
     <properties>
