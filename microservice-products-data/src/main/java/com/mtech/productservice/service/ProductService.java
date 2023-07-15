@@ -7,6 +7,7 @@ import com.mtech.productservice.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class ProductService {
      *
      * @return
      */
+    @Transactional(readOnly = true)
     public List<ProductResponse> findAllProducts() {
         try {
             log.info("findAllProducts()");
@@ -60,6 +62,7 @@ public class ProductService {
      *
      * @param productRequest
      */
+    @Transactional
     public void createProduct(ProductRequest productRequest) {
         try {
             log.info("createProduct({})", productRequest);
