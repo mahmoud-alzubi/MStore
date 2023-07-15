@@ -1,6 +1,7 @@
 package com.mtech.microserviceinventorydata.service;
 
 import com.mtech.commons.dto.InventoryResponse;
+import com.mtech.commons.exception.ProductNotFoundException;
 import com.mtech.microserviceinventorydata.dto.InventoryRequest;
 import com.mtech.microserviceinventorydata.entity.Inventory;
 import com.mtech.microserviceinventorydata.repository.InventoryRepository;
@@ -36,6 +37,10 @@ public class InventoryServiceImpl implements InventoryService {
         try {
             log.info("isInStock({})");
             List<Inventory> inventoryList = repository.findBySkuCodeIn(skuCodes);
+            if (inventoryList.isEmpty()) {
+                throw new ProductNotFoundException("");
+            }
+
             List<InventoryResponse> itemsInStockList = inventoryList.stream()
                     .map(inventoryItem -> mapInventoryItems(inventoryItem)).toList();
 
