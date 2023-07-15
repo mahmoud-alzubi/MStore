@@ -1,6 +1,7 @@
 package com.mtech.microserviceinventorydata.service;
 
 import com.mtech.microserviceinventorydata.dto.InventoryRequest;
+import com.mtech.microserviceinventorydata.dto.InventoryResponse;
 import com.mtech.microserviceinventorydata.entity.Inventory;
 import com.mtech.microserviceinventorydata.repository.InventoryRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,22 +26,32 @@ public class InventoryServiceImpl implements InventoryService {
     //////////////////////////////////////////
 
     /**
-     * To check item stock status.
+     * To check items stock status.
      *
-     * @param skuCode
+     * @param skuCodes
      * @return
      */
     @Override
     @Transactional(readOnly = true)
-    public boolean isInStock(String skuCode) {
+    public List<InventoryResponse> isInStock(List<String> skuCodes) {
         try {
             log.info("isInStock({})");
-            Optional<Inventory> inventory = repository.findBySkuCode(skuCode);
-            return inventory.isPresent();
+            List<Inventory> inventoryList = repository.findBySkuCodeIn(skuCodes);
+            List<InventoryResponse> itemsInStockList = inventoryList.stream()
+                    .map(inventoryItem -> mapInventoryItems(inventoryItem)).toList();
+
+            return itemsInStockList;
         } finally {
             log.info("/isInStock({})");
         }
     }
+
+    private InventoryResponse mapInventoryItems(Inventory inventoryItem) {
+        return InventoryResponse.builder()
+                .skuCode(inventoryItem.getSkuCode())
+                .inStock(inventoryItem.getQuantity() > 0).build();
+    }
+
 
     //////////////////////////////////////////
 
