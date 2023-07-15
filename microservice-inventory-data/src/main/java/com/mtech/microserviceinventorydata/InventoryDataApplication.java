@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class InventoryDataApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceInventoryDataApplication.class, args);
+		SpringApplication.run(InventoryDataApplication.class, args);
 	}
 
 }
