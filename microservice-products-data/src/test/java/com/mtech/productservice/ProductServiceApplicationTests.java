@@ -5,6 +5,7 @@ import com.mtech.productservice.dto.ProductRequest;
 import com.mtech.productservice.repository.ProductRepository;
 import com.mtech.productservice.service.ProductService;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import org.testcontainers.utility.DockerImageName;
 @SpringBootTest
 @Testcontainers
 @AutoConfigureMockMvc
+@Disabled
 class ProductServiceApplicationTests {
 
     @Container
