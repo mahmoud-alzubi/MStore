@@ -20,12 +20,12 @@ import java.util.UUID;
 @Slf4j
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository repository;
-    private final WebClient client;
+    private final WebClient.Builder clientBuilder;
 
     @Autowired
-    public OrderServiceImpl(OrderRepository repository, WebClient client) {
+    public OrderServiceImpl(OrderRepository repository, WebClient.Builder clientBuilder) {
         this.repository = repository;
-        this.client = client;
+        this.clientBuilder = clientBuilder;
     }
 
 
@@ -47,8 +47,8 @@ public class OrderServiceImpl implements OrderService {
                 return orderLineItem.getSkuCode();
             }).toList();
 
-            InventoryResponse[] inventoryResponseArray = client.get()
-                    .uri("http://localhost:8082/api/inventories",
+            InventoryResponse[] inventoryResponseArray = clientBuilder.build().get()
+                    .uri("http://microservice-inventory-data/api/inventories",
                             uriBuilder -> uriBuilder.queryParam("skuCode", listOfCodes).build())
                     .retrieve()
                     .bodyToMono(InventoryResponse[].class)
