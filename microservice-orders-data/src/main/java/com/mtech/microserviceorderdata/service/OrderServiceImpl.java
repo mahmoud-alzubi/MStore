@@ -35,10 +35,11 @@ public class OrderServiceImpl implements OrderService {
      * To place a new order.
      *
      * @param orderRequest
+     * @return
      */
     @Override
     @Transactional
-    public void placeOrder(OrderRequest orderRequest) {
+    public String placeOrder(OrderRequest orderRequest) {
         try {
             log.info("placeOrder({})", orderRequest);
 
@@ -68,6 +69,8 @@ public class OrderServiceImpl implements OrderService {
             order.setOrderLineItemList(orderLineItemList);
 
             repository.save(order);
+
+            return "order placed successfully!";
         } finally {
             log.info("/placeOrder({})", orderRequest);
         }
