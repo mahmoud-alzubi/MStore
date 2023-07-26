@@ -1,11 +1,11 @@
 package com.mtech.microserviceorderdata.service;
 
 import com.mtech.commons.dto.InventoryResponse;
+import com.mtech.commons.events.OrderPlacedEvent;
 import com.mtech.microserviceorderdata.dto.OrderLineItemDto;
 import com.mtech.microserviceorderdata.dto.OrderRequest;
 import com.mtech.microserviceorderdata.entity.Order;
 import com.mtech.microserviceorderdata.entity.OrderLineItem;
-import com.mtech.microserviceorderdata.events.OrderPlacedEvent;
 import com.mtech.microserviceorderdata.exception.ProductNotFoundException;
 import com.mtech.microserviceorderdata.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;

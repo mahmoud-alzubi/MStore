@@ -1,4 +1,4 @@
-package com.mtech.microserviceorderdata.events;
+package com.mtech.commons.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

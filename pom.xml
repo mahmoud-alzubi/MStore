@@ -25,6 +25,7 @@
         <module>commons-lib</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>notifications-service</module>
     </modules>
 
     <properties>
