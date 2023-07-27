@@ -1,6 +1,6 @@
 # MStore 🛒
 <p align="justify">
-MStore is a backend project for an online shopping store that follows a parent-child Maven structure. It includes microservices for Inventory, Orders, and Products, and utilizes MongoDB and MySQL databases. The project incorporates integration testing using Test Containers to ensure reliable and comprehensive system functionality testing. </p>
+MStore is a backend project for an online shopping store. It follows a parent-child Maven structure and adheres to Java modularity principles. Additionally, it includes microservices for Inventory, Orders, and Products, and utilizes MongoDB and MySQL databases. The project incorporates integration testing using Test Containers to ensure reliable and comprehensive system functionality testing.</p>
 
 <p align="justify">To implement efficient RESTful APIs, MStore leverages the Java and Spring Boot framework. This framework allows for seamless management of inventory, order processing, and product information in the online store. </p>
 
