@@ -1,4 +1,7 @@
 # MStore 🛒
+
+![MStore Architecture](https://github.com/mahmoud-alzubi/MStore/blob/main/documents/draw.io/MStore-Architecture.png)
+
 <p align="justify">
 MStore is a backend project for an online shopping store. It follows a parent-child Maven structure and adheres to Java modularity principles. Additionally, it includes microservices for Inventory, Orders, and Products, and utilizes MongoDB and MySQL databases. The project incorporates integration testing using Test Containers to ensure reliable and comprehensive system functionality testing.</p>
 
